@@ -8,6 +8,7 @@
 #include "esphome/components/display/display_buffer.h"
 
 #include "ESP32-HUB75-MatrixPanel-I2S-DMA.h"
+#include "ESP32-VirtualMatrixPanel-I2S-DMA.h" 
 
 namespace esphome
 {
@@ -225,6 +226,7 @@ namespace esphome
             /// @brief Wrapped matrix display
             MatrixPanel_I2S_DMA *dma_display_ = nullptr;
 
+            VirtualMatrixPanel  *FourScanPanel = nullptr;
             /// @brief Matrix configuration
             HUB75_I2S_CFG mxconfig_;
 
