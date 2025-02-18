@@ -234,7 +234,7 @@ namespace esphome
             int initial_brightness_ = 128;
 
             /// @brief on-off status of the display matrix
-            bool enabled_ = false;
+            bool enabled_ = true;
 
             /// @brief power switches belonging to this matrix display
             std::vector<matrix_display_switch::MatrixDisplaySwitch *> power_switches_;
