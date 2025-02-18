@@ -22,7 +22,7 @@ namespace esphome
                 HUB75_I2S_CFG mxconfig(
                         this->mxconfig_.mx_width*2,              // DO NOT CHANGE THIS
                         this->mxconfig_.mx_height/2,              // DO NOT CHANGE THIS
-                        this->mxconfig_.chain_length*2           // DO NOT CHANGE THIS
+                        this->mxconfig_.chain_length*1           // DO NOT CHANGE THIS
                         ,this->mxconfig_.gpio            // Uncomment to enable custom pins
             );
             // Display Setup
@@ -30,7 +30,7 @@ namespace esphome
             this->dma_display_->begin();
             this->dma_display_->clearScreen();
             
-            FourScanPanel = new VirtualMatrixPanel((*this->dma_display_), this->mxconfig_.chain_length, 2, this->mxconfig_.mx_width , this->mxconfig_.mx_height);
+            FourScanPanel = new VirtualMatrixPanel((*this->dma_display_), this->mxconfig_.chain_length, 1, this->mxconfig_.mx_width , this->mxconfig_.mx_height);
             this->FourScanPanel->setPhysicalPanelScanRate(FOUR_SCAN_32PX_HIGH);
               
             set_brightness(this->initial_brightness_);
