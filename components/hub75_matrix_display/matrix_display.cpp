@@ -30,7 +30,7 @@ namespace esphome
             this->dma_display_->begin();
             this->dma_display_->clearScreen();
             
-            FourScanPanel = new VirtualMatrixPanel((*this->dma_display_), this->mxconfig_.chain_length, 1, this->mxconfig_.mx_width , this->mxconfig_.mx_height);
+            FourScanPanel = new VirtualMatrixPanel((*this->dma_display_), 1 , this->mxconfig_.chain_length, this->mxconfig_.mx_width , this->mxconfig_.mx_height);
             this->FourScanPanel->setPhysicalPanelScanRate(FOUR_SCAN_32PX_HIGH);
               
             set_brightness(this->initial_brightness_);
