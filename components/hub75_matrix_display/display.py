@@ -125,12 +125,15 @@ async def to_code(config):
     A_pin = await cg.gpio_pin_expression(config[A_PIN])
     B_pin = await cg.gpio_pin_expression(config[B_PIN])
     C_pin = await cg.gpio_pin_expression(config[C_PIN])
-    D_PIN = 0
     
     LAT_pin = await cg.gpio_pin_expression(config[LAT_PIN])
     OE_pin = await cg.gpio_pin_expression(config[OE_PIN])
     CLK_pin = await cg.gpio_pin_expression(config[CLK_PIN])
-
+    if D_PIN in config:
+        D_pin = await cg.gpio_pin_expression(config[D_PIN])
+    else:
+        D_pin = 0
+    
     if E_PIN in config:
         E_pin = await cg.gpio_pin_expression(config[E_PIN])
     else:
