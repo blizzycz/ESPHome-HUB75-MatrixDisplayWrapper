@@ -25,9 +25,10 @@ namespace esphome
             
             FourScanPanel = new VirtualMatrixPanel((*this->dma_display_), this->mxconfig_.chain_length, 1, this->mxconfig_.mx_width , this->mxconfig_.mx_height);
             this->FourScanPanel->setPhysicalPanelScanRate(FOUR_SCAN_32PX_HIGH);
-           
+              t
             set_brightness(this->initial_brightness_);
             this->dma_display_->clearScreen();
+            his->FourScanPanel->print("PANEL");
 
             // Default to off if power switches are present
             set_state(!this->power_switches_.size());
