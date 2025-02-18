@@ -22,6 +22,10 @@ namespace esphome
             // Display Setup
             dma_display_ = new MatrixPanel_I2S_DMA(this->mxconfig_);
             this->dma_display_->begin();
+            
+            FourScanPanel = new VirtualMatrixPanel((*dma_display), this->mxconfig_.chain_length, NUM_COLS, this->mxconfig_.mx_width , his->mxconfig_.mx_height);
+            this->FourScanPanel->setPhysicalPanelScanRate(FOUR_SCAN_32PX_HIGH);
+           
             set_brightness(this->initial_brightness_);
             this->dma_display_->clearScreen();
 
@@ -103,19 +107,19 @@ namespace esphome
                 return;
 
             // Update pixel value in buffer
-            this->dma_display_->drawPixelRGB888(x, y, color.r, color.g, color.b);
+            this->FourScanPanel->drawPixelRGB888(x, y, color.r, color.g, color.b);
         }
 
         void MatrixDisplay::fill(Color color)
         {
             // Wrap fill screen method
-            this->dma_display_->fillScreenRGB888(color.r, color.g, color.b);
+            this->FourScanPanel->fillScreenRGB888(color.r, color.g, color.b);
         }
 
         void MatrixDisplay::filled_rectangle(int x1, int y1, int width, int height, Color color)
         {
             // Wrap fill rectangle method
-            this->dma_display_->fillRect(x1, y1, width, width, color.r, color.g, color.b);
+            this->FourScanPanel->fillRect(x1, y1, width, width, color.r, color.g, color.b);
         }
 
     } // namespace matrix_display
