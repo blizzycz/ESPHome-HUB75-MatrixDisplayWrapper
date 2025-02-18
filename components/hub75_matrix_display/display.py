@@ -85,7 +85,7 @@ CONFIG_SCHEMA = display.FULL_DISPLAY_SCHEMA.extend(
         cv.Optional(A_PIN, default=23): pins.gpio_output_pin_schema,
         cv.Optional(B_PIN, default=19): pins.gpio_output_pin_schema,
         cv.Optional(C_PIN, default=5): pins.gpio_output_pin_schema,
-        cv.Optional(D_PIN, default=17): pins.gpio_output_pin_schema,
+        cv.Optional(D_PIN): pins.gpio_output_pin_schema,
         cv.Optional(E_PIN): pins.gpio_output_pin_schema,
         cv.Optional(LAT_PIN, default=4): pins.gpio_output_pin_schema,
         cv.Optional(OE_PIN, default=15): pins.gpio_output_pin_schema,
