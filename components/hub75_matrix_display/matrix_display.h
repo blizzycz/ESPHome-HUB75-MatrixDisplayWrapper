@@ -244,11 +244,11 @@ namespace esphome
 
             int get_width_internal() override
             {
-                return this->mxconfig_.mx_width * this->mxconfig_.chain_length;
+                return this->mxconfig_.mx_width * this->mxconfig_.chain_length * 2;
             };
             int get_height_internal() override
             {
-                return this->mxconfig_.mx_height;
+                return this->mxconfig_.mx_height/2;
             };
 
             /**
