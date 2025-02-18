@@ -18,10 +18,22 @@ namespace esphome
 
             // The min refresh rate correlates with the update frequency of the component
             this->mxconfig_.min_refresh_rate = 1000 / update_interval_;
+               HUB75_I2S_CFG::i2s_pins _pins = {
+                  this->mxconfig_.R1_PIN, this->mxconfig_.G1_PIN, this->mxconfig_.B1_PIN, this->mxconfig_.R2_PIN, this->mxconfig_.G2_PIN, this->mxconfig_.B2_PIN, 
+                  this->mxconfig_.A_PIN, this->mxconfig_.B_PIN, this->mxconfig_.C_PIN, -1, -1, 
+                  this->mxconfig_.LAT_PIN, this->mxconfig_.OE_PIN, this->mxconfig_.CLK_PIN
+                 };
 
+                HUB75_I2S_CFG mxconfig(
+                        this->mxconfig_.mx_width*2,              // DO NOT CHANGE THIS
+                        this->mxconfig_.mx_height/2,              // DO NOT CHANGE THIS
+                        this->mxconfig_.chain_length*1           // DO NOT CHANGE THIS
+                        ,_pins            // Uncomment to enable custom pins
+            );
             // Display Setup
-            dma_display_ = new MatrixPanel_I2S_DMA(this->mxconfig_);
+            dma_display_ = new MatrixPanel_I2S_DMA(mxconfig);
             this->dma_display_->begin();
+            this->dma_display_->clearScreen();
             
             FourScanPanel = new VirtualMatrixPanel((*this->dma_display_), this->mxconfig_.chain_length, 1, this->mxconfig_.mx_width , this->mxconfig_.mx_height);
             this->FourScanPanel->setPhysicalPanelScanRate(FOUR_SCAN_32PX_HIGH);
