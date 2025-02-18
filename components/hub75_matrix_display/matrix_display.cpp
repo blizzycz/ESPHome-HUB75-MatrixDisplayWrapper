@@ -1,4 +1,6 @@
 #include "matrix_display.h"
+#define SERPENT true
+#define TOPDOWN false
 
 namespace esphome
 {
@@ -16,8 +18,6 @@ namespace esphome
 
             // The min refresh rate correlates with the update frequency of the component
             this->mxconfig_.min_refresh_rate = 1000 / update_interval_;
-
-            this->mxconfig_.double_buff = true;
 
             // Display Setup
             dma_display_ = new MatrixPanel_I2S_DMA(this->mxconfig_);
