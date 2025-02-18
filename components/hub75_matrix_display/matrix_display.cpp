@@ -116,11 +116,5 @@ namespace esphome
             this->FourScanPanel->fillScreenRGB888(color.r, color.g, color.b);
         }
 
-        void MatrixDisplay::filled_rectangle(int x1, int y1, int width, int height, Color color)
-        {
-            // Wrap fill rectangle method
-            this->FourScanPanel->fillRect(x1, y1, width, width, color.r, color.g, color.b);
-        }
-
     } // namespace matrix_display
 } // namespace esphome
