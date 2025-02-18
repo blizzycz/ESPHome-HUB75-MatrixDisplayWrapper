@@ -48,7 +48,7 @@ namespace esphome
                 this->dma_display_->clearScreen();
             }
             // Flip buffer to show changes
-            this->dma_display_->flipDMABuffer();
+            this->FourScanPanel->flipDMABuffer();
         }
 
         void MatrixDisplay::dump_config()
