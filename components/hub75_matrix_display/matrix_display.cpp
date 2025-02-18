@@ -35,7 +35,6 @@ namespace esphome
               
             set_brightness(this->initial_brightness_);
             this->dma_display_->clearScreen();
-            this->FourScanPanel->print("PANEL");
 
             // Default to off if power switches are present
             set_state(!this->power_switches_.size());
