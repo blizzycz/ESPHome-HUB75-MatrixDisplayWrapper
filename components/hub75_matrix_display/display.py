@@ -134,6 +134,7 @@ async def to_code(config):
         E_pin = await cg.gpio_pin_expression(config[E_PIN])
     else:
         E_pin = 0
+
     if D_PIN in config:
         D_PIN = await cg.gpio_pin_expression(config[D_PIN])
     else:
